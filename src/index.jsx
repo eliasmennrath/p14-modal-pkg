@@ -21,9 +21,13 @@ export default function Modal(props) {
         };
 
     return (
-
         <>
-            {React.cloneElement(props.children, { onClick: () => setClosed(false) })}
+            {React.cloneElement(props.children, { onClick: () => {
+                if(props.children.props.onClick) {
+                    props.children.props.onClick();
+                }
+                setClosed(false) 
+            }})}
             <div className={`modal ${!closed ? 'modal-visible' : ''}`} onClick={handleOutsideClick}>
 
                 <div className="modal-content">
