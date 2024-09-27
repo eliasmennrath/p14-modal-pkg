@@ -22,9 +22,9 @@ export default function Modal(props) {
 
     return (
         <>
-            {React.cloneElement(props.children, { onClick: () => {
+            {React.cloneElement(props.children, { onClick: (e) => {
                 if(props.children.props.onClick) {
-                    props.children.props.onClick();
+                    props.children.props.onClick(e);
                 }
                 setClosed(false) 
             }})}
