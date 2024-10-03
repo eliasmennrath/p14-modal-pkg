@@ -7,7 +7,7 @@ import './modal.css';
 export default function Modal(props) {
 
 
-    const { header = null, body, footer } = props;
+    const { header = null, body, footer = null } = props;
     const { outsideClick } = props;
 
     const [closed, setClosed] = useState(true);
@@ -50,5 +50,5 @@ Modal.propTypes = {
     footer: PropTypes.node,
     outsideClick: PropTypes.bool,
 
-    children: PropTypes.node
+    children: PropTypes.node.isRequired
 };
